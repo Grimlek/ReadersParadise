@@ -1,0 +1,28 @@
+<footer>  
+    <div id="business" class="left">
+        <span>&copy; 2016 Readers Paradise</span> | 
+        <a title="Contact Us" href="#">
+            Contact
+        </a>
+        | 
+        <a title="Directions" href="#">
+            Directions
+        </a>
+    </div>
+    <div id="languages" class="right width-1">
+        <a title="English" class="press-effect txt-dec-none" href="#">
+            [english]
+        </a>
+        <a title="Czech" class="press-effect txt-dec-none" href="#">
+            [czech]
+        </a>
+    </div>
+    <div id="social-media" class="right">
+        <a title="Facebook Page" class="press-effect" href="#">
+            <img src="img/facebook-icon.png" alt="Facebook" />
+        </a>
+        <a title="Twitter Page" class="press-effect" href="#">
+            <img src="img/twitter.png" alt="Twitter" />
+        </a>
+    </div>
+</footer>
