@@ -6,8 +6,7 @@
 package actions.cart;
 
 import actions.Action;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import actions.ActionFacade;
 
 /**
  *
@@ -16,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ViewAction implements Action{
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public String execute(ActionFacade facade) throws Exception {
         return "cart";
     }
     

@@ -6,33 +6,17 @@
 package actions.cart;
 
 import actions.Action;
-import cart.ShoppingCart;
-import entity.Book;
-import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import session.BookFacade;
+import actions.ActionFacade;
 
 /**
  *
  * @author csexton
  */
 public class IncrementAction implements Action {
-
-    @Inject
-    private BookFacade bookFacade;
     
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        
-        HttpSession session = request.getSession();
-        ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
-        String bookId = request.getParameter("bookId");
-        
-        Book book = bookFacade.find(Integer.parseInt(bookId));
-        cart.increment(book);
-        
+    public String execute(ActionFacade facade) throws Exception {
+        facade.cartIncrementBook();
         return "cart";
     }
 

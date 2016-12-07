@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Readers Paradise Shopping Cart</title>
-        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="../css/main.css">
     </head>
     <body>
         <%@include file="../jspf/header.jspf" %>
@@ -23,7 +23,7 @@
                             You don't contain any items within your cart
                         </h2>
                         <a id="continue-shopping" class="blue-btn txt-dec-none press-effect" 
-                           title="Continue Shopping" href="category?category=${selectedCategory.name}">
+                           title="Continue Shopping" href="../category?category=${selectedCategory.name}">
                             Continue Shopping
                         </a>
                     </div>
@@ -31,11 +31,11 @@
                 <c:otherwise>
                     <div id="cart-actions-container">
                         <a id="continue-shopping" class="blue-btn txt-dec-none press-effect" 
-                           title="Continue Shopping" href="category?category=${selectedCategory.name}">
+                           title="Continue Shopping" href="../category?category=${selectedCategory.name}">
                             Continue Shopping
                         </a>
                         <a id="proceed-to-checkout" class="blue-btn txt-dec-none press-effect"
-                           title="Proceed to Checkout" href="checkout">
+                           title="Proceed to Checkout" href="../checkout">
                             Proceed to Checkout
                         </a>
                     </div>
@@ -46,7 +46,7 @@
                                     <div class="left-item-content">
                                         <a class="xls-pad-left press-effect" href="#" 
                                            title="${item.book.title}">
-                                            <img src="${initParam.productImagePath}${item.book.title.toLowerCase()}.png" 
+                                            <img src="../${initParam.productImagePath}${item.book.title.toLowerCase()}.png" 
                                                  alt="${item.book.title}" height="150" width="100" />
                                         </a>
                                         <div class="item-description width-7">
@@ -66,35 +66,29 @@
                                             <span class="item-price">Price: $${item.book.price}</span>
                                         </div>
                                         <div class="item-qty-container">
-                                            <form id="update-quantity" action="updateCart" method="post">
+                                            <p id="${item.book.id}-item-qty" class="item-qty xls-pad-bot">
+                                                Quantity: ${item.quantity}
+                                            </p>
+                                            <form id="update-quantity" action="decrement" method="post">
                                                 <input type="hidden" name="bookId" value="${item.book.id}">
-                                                <c:choose>
-                                                    <c:when test="${item.quantity > 1}">
-                                                        <p id="${item.book.id}-item-qty" class="item-qty xls-pad-bot">Quantity: ${item.quantity}</p>
-                                                        <button class="decrement" type="submit">
-                                                            <img class="xls-pad-top press-effect" src="img/minus-button.png" 
-                                                                 alt="Increment Quantity" />
-                                                        </button>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <p id="${item.book.id}-item-qty" class="hide item-qty xls-pad-bot">Quantity: ${item.quantity}</p>
-                                                        <button class="decrement hide" type="submit">
-                                                            <img class="xls-pad-top press-effect" src="img/minus-button.png" 
-                                                                 alt="Increment Quantity" />
-                                                        </button>
-                                                    </c:otherwise>
-                                                </c:choose>
-                                                <button class="increment remove-default-button" type="submit" name="action" value="increment">
-                                                    <img class="xls-pad-top press-effect" src="img/plus-button.png" 
+                                                <button class="decrement <c:if test="${item.quantity < 2}">hide</c:if>" type="submit">
+                                                        <img class="xls-pad-top press-effect" src="../img/minus-button.png" 
+                                                             alt="Decrement Quantity" />
+                                                    </button>
+                                                </form>
+                                                <form id="update-quantity" action="increment" method="post">
+                                                    <input type="hidden" name="bookId" value="${item.book.id}">
+                                                <button class="increment remove-default-button" type="submit">
+                                                    <img class="xls-pad-top press-effect" src="../img/plus-button.png" 
                                                          alt="Increment Quantity" />
                                                 </button>
                                             </form>
                                         </div>
                                     </div>
-                                    <form id="remove-book" action="updateCart" method="post">
+                                    <form id="remove-book" action="remove" method="post">
                                         <input type="hidden" name="bookId" value="${item.book.id}">
                                         <button class="remove remove-default-button" type="submit" name="action" value="remove">
-                                            <img class="xls-pad-top press-effect" src="img/delete-button.png" 
+                                            <img class="xls-pad-top press-effect" src="../img/delete-button.png" 
                                                  alt="Remove Book" />
                                         </button>
                                     </form>

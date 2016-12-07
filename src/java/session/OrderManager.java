@@ -33,7 +33,7 @@ import javax.persistence.EntityManager;
 @TransactionManagement(TransactionManagementType.CONTAINER)
 public class OrderManager {
     
-    @PersistenceContext(unitName = "ReadersParadisePU")
+    @PersistenceContext(unitName = "AffableBeanPU")
     private EntityManager em;
     
     @Resource

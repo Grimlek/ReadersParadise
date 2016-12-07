@@ -6,42 +6,18 @@
 package actions.cart;
 
 import actions.Action;
-import cart.ShoppingCart;
-import entity.Book;
-import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import session.BookFacade;
+import actions.ActionFacade;
 
 /**
  *
  * @author csexton
  */
 public class AddAction implements Action {
-    
-    @Inject
-    private BookFacade bookFacade;
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        
-        HttpSession session = request.getSession();
-        ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
-        
-        if (cart == null) {
-            cart = new ShoppingCart();
-            session.setAttribute("cart", cart);
-        }
-
-        // Add book to shopping cart
-        String bookId = request.getParameter("bookId");
-        if (!bookId.isEmpty()) {
-            Book book = bookFacade.find(Integer.valueOf(bookId));
-            cart.addItem(book);
-        }
-
-        return "category";
+    public String execute(ActionFacade facade) throws Exception {
+        facade.addBookToCart();
+        return facade.getReffererUri();
     }
 
 }

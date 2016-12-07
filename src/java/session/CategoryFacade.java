@@ -7,6 +7,7 @@ package session;
 
 import entity.Category;
 import java.util.List;
+import javax.ejb.Startup;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -18,9 +19,10 @@ import javax.persistence.PersistenceContext;
  * @author csexton
  */
 @Stateless(name="CategoryFacade")
+@Startup
 public class CategoryFacade extends AbstractFacade<Category> {
 
-    @PersistenceContext(unitName = "ReadersParadisePU")
+    @PersistenceContext(unitName = "AffableBeanPU")
     private EntityManager em;
 
     @Override

@@ -27,7 +27,7 @@ for (var i = 0; i < decrementElements.length; i++) {
 function decrementQuantity(event) {
     var parent = event.currentTarget.parentNode;
     var bookId = parent.querySelector('[name=bookId]').value;
-    var url = "updateCart?action=decrement&bookId=" + bookId;
+    var url = "updateCart/decrement?bookId=" + bookId;
 
     asyncPost(url, "", function () {
 
@@ -56,7 +56,7 @@ function incrementQuantity(event) {
     var parent = event.currentTarget.parentNode;
     var bookId = parent.querySelector('[name=bookId]').value;
 
-    var url = "updateCart?action=increment&bookId=" + bookId
+    var url = "updateCart/increment?bookId=" + bookId
 
     var quantity = document.getElementById(bookId + "-item-qty").innerHTML.split(" ")[1];
 

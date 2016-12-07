@@ -82,7 +82,7 @@
                                 <img src="${initParam.starImagePath}four-and-half-stars.png" 
                                      alt="Review Stars" />
                             </div>
-                            <form class="inline" action="updateCart" method="post">
+                            <form class="inline" action="cart/add" method="post">
                                 <input type="hidden" name="action" value="addToCart">
                                 <input type="hidden" name="bookId" value="${book.id}">
                                 <button id="add-to-cart" 

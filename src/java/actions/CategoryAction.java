@@ -6,12 +6,12 @@
 package actions;
 
 public class CategoryAction implements Action {
-    
+
     @Override
     public String execute(ActionFacade facade) throws Exception {
-            facade.setSelectedCategory();
-            facade.setAllCategories();
-            return "category";
+        facade.setSelectedCategory();
+        facade.setAllCategories();
+        return "category";
     }
-    
+
 }

@@ -9,7 +9,7 @@
     </a>
     <div id="cart" class="right sml-pad-right">
         <a class="txt-dec-none press-effect" 
-           title="Shopping Cart" role="button" type="button" href="viewCart">
+           title="Shopping Cart" role="button" type="button" href="cart/view">
             <img src="img/cart.png" alt="Cart Icon"/>
             <span class="align-top">
                 ${empty cart ? 0 : cart.numberOfItems}
