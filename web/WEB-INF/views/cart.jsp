@@ -46,7 +46,7 @@
                                     <div class="left-item-content">
                                         <a class="xls-pad-left press-effect" href="#" 
                                            title="${item.book.title}">
-                                            <img src="../${initParam.productImagePath}${item.book.title.toLowerCase()}.png" 
+                                            <img src="${initParam.productImagePath}${item.book.title.toLowerCase()}.png" 
                                                  alt="${item.book.title}" height="150" width="100" />
                                         </a>
                                         <div class="item-description width-7">
@@ -69,26 +69,29 @@
                                             <p id="${item.book.id}-item-qty" class="item-qty xls-pad-bot">
                                                 Quantity: ${item.quantity}
                                             </p>
-                                            <form id="update-quantity" action="decrement" method="post">
+                                            <form id="increment" action="increment" method="post">
                                                 <input type="hidden" name="bookId" value="${item.book.id}">
-                                                <button class="decrement <c:if test="${item.quantity < 2}">hide</c:if>" type="submit">
-                                                        <img class="xls-pad-top press-effect" src="../img/minus-button.png" 
-                                                             alt="Decrement Quantity" />
-                                                    </button>
-                                                </form>
-                                                <form id="update-quantity" action="increment" method="post">
-                                                    <input type="hidden" name="bookId" value="${item.book.id}">
-                                                <button class="increment remove-default-button" type="submit">
-                                                    <img class="xls-pad-top press-effect" src="../img/plus-button.png" 
+                                                <button class="remove-default-button" type="submit">
+                                                    <img class="xls-pad-top press-effect" src="${initParam.imagePath}plus-button.png" 
                                                          alt="Increment Quantity" />
                                                 </button>
                                             </form>
+                                            <c:if test="${item.quantity > 1}">
+                                                <form id="decrement" action="decrement" method="post">
+                                                    <input type="hidden" name="bookId" value="${item.book.id}">
+
+                                                    <button class="remove-default-button" type="submit">
+                                                        <img class="xls-pad-top press-effect" src="${initParam.imagePath}minus-button.png" 
+                                                             alt="Decrement Quantity" />
+                                                    </button>
+                                                </form>
+                                            </c:if>
                                         </div>
                                     </div>
                                     <form id="remove-book" action="remove" method="post">
                                         <input type="hidden" name="bookId" value="${item.book.id}">
                                         <button class="remove remove-default-button" type="submit" name="action" value="remove">
-                                            <img class="xls-pad-top press-effect" src="../img/delete-button.png" 
+                                            <img class="xls-pad-top press-effect" src="${initParam.imagePath}delete-button.png" 
                                                  alt="Remove Book" />
                                         </button>
                                     </form>
@@ -100,6 +103,6 @@
                 </c:otherwise>
             </c:choose>
         </main>
-        <jsp:include page="../jspf/footer.jspf" />
+        <%@include file="../jspf/footer.jspf" %>
     </body>
 </html>

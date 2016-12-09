@@ -19,7 +19,7 @@
             <section id="welcome" class="left bgd-clr-white center sml-pad-top width-4">
                 <h2 class="width-8">Welcome to the Readers Paradise</h2>
                 <div>
-                    <img src="img/welcome-image.png" alt="Welcome Book Image"/>
+                    <img src="${initParam.imagePath}welcome-image.png" alt="Welcome Book Image"/>
                     <span class="inline-block">Become smarter by enjoying your favorite bookstore.</span>
                 </div>
                 <p class="width-8">A bookstore to let you find all of your favorite books in one location at the 
@@ -39,6 +39,6 @@
                 </c:forEach>
             </section>
         </main>
-        <jsp:include page="../jspf/footer.jspf" />
+        <%@include file="../jspf/footer.jspf" %>
     </body>
 </html>

@@ -5,6 +5,7 @@ import actions.ActionFacade;
 import actions.ActionFactory;
 import actions.CategoryAction;
 import actions.CheckoutAction;
+import actions.ConfirmationAction;
 import actions.HomeAction;
 import actions.PurchaseAction;
 import actions.cart.AddAction;
@@ -32,7 +33,8 @@ import javax.servlet.http.HttpServletResponse;
             "/category",
             "/cart/*",
             "/purchase",
-            "/checkout"
+            "/checkout",
+            "/confirmation"
         }
 )
 public class ControllerServlet extends HttpServlet {
@@ -47,6 +49,7 @@ public class ControllerServlet extends HttpServlet {
         ActionFactory.actions.put("POST/cart/remove", new RemoveAction());
         ActionFactory.actions.put("GET/cart/view", new ViewAction());
         ActionFactory.actions.put("POST/purchase", new PurchaseAction());
+        ActionFactory.actions.put("GET/confirmation", new ConfirmationAction());
         ActionFactory.actions.put("GET/category", new CategoryAction());
         ActionFactory.actions.put("GET/checkout", new CheckoutAction());
         ActionFactory.actions.put("GET/index", new HomeAction());
@@ -56,12 +59,12 @@ public class ControllerServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Request made to service method.....");
+
         try (ActionFacade facade = ActionFacade.create(request)) {
 
             Action action = ActionFactory.getAction(request);
             String view = action.execute(facade);
-
+            
             if (request.getServletPath().equals("") || view.equals(request.getServletPath().substring(1))) {
                 request.getRequestDispatcher("/WEB-INF/views/" + view + ".jsp").forward(request, response);
             } else {
@@ -69,6 +72,7 @@ public class ControllerServlet extends HttpServlet {
             }
 
         } catch (NullPointerException e) {
+            // No action was found, return 404
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         } catch (Exception e) {
             throw new ServletException("Executing action failed.", e);

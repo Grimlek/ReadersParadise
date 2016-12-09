@@ -96,7 +96,7 @@
                                 <c:when test="${book.isPublic == true}">
                                     <a id="read-now" class="xls-pad-left txt-dec-none press-effect" 
                                        title="Read Now" role="button" href="#">
-                                        <img src="img/read-now.png" alt="Read Now">
+                                        <img src="${initParam.imagePath}read-now.png" alt="Read Now">
                                     </a>
                                 </c:when>
                             </c:choose>
@@ -105,6 +105,6 @@
                 </c:forEach>
             </section>
         </main>
-        <jsp:include page="../jspf/footer.jspf" />
+        <%@include file="../jspf/footer.jspf" %>
     </body>
 </html>

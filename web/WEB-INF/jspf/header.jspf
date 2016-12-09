@@ -1,6 +1,6 @@
 <header class="center">
-    <a href="index" class="press-effect">
-        <img class="left" src="img/logo.png" alt="Readers Paradise Logo" />
+    <a href="/ReadersParadise/index" class="press-effect">
+        <img class="left" src="${initParam.imagePath}logo.png" alt="Readers Paradise Logo" />
     </a>
     <h1 class="inline">Readers Paradise</h1>
     <a id="login-button" class="press-effect right txt-dec-none usr-select-no" href="#" 
@@ -10,7 +10,7 @@
     <div id="cart" class="right sml-pad-right">
         <a class="txt-dec-none press-effect" 
            title="Shopping Cart" role="button" type="button" href="cart/view">
-            <img src="img/cart.png" alt="Cart Icon"/>
+            <img src="${initParam.imagePath}cart.png" alt="Cart Icon"/>
             <span class="align-top">
                 ${empty cart ? 0 : cart.numberOfItems}
             </span>
@@ -20,7 +20,7 @@
         <div id="search" class="xls-pad-top">
             <input class="width-3" type="text" name="category" placeholder="Search" />
             <button type="submit">
-                <img class="xls-pad-top press-effect" src="img/search-icon.png" alt="Search Icon" />
+                <img class="xls-pad-top press-effect" src="${initParam.imagePath}search-icon.png" alt="Search Icon" />
             </button>
         </div>
     </form>

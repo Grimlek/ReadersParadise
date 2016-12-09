@@ -119,7 +119,7 @@
                 </div>
             </div>
         </div>
-        <jsp:include page="../jspf/footer.jspf" />
+        <%@include file="../jspf/footer.jspf" %>
         <script type="text/javascript">
             var currentMonth = ${currentMonth};
             var currentYear = ${currentYear};

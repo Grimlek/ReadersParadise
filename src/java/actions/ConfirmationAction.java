@@ -9,22 +9,15 @@ package actions;
  *
  * @author csexton
  */
-public class PurchaseAction implements Action {
-    
+public class ConfirmationAction implements Action {
+
     @Override
     public String execute(ActionFacade facade) throws Exception {
-        
-        if (!facade.isCheckoutValid()) {
-            return "checkout";
+        String orderId = facade.getServletRequest().getParameter("id");
+        if (orderId.matches("^\\d+$")) {
+            facade.setOrderDetails(Integer.parseInt(orderId));                    
         }
-
-        int orderId = facade.placeOrder();
-
-        if (orderId == 0) {
-            return "checkout";
-        }
-
-        return "confirmation?id=" + orderId;
+        return "confirmation";
     }
-
+    
 }

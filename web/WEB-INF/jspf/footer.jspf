@@ -19,10 +19,10 @@
     </div>
     <div id="social-media" class="right">
         <a title="Facebook Page" class="press-effect" href="#">
-            <img src="img/facebook-icon.png" alt="Facebook" />
+            <img src="${initParam.imagePath}facebook-icon.png" alt="Facebook" />
         </a>
         <a title="Twitter Page" class="press-effect" href="#">
-            <img src="img/twitter.png" alt="Twitter" />
+            <img src="${initParam.imagePath}twitter.png" alt="Twitter" />
         </a>
     </div>
 </footer>

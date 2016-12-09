@@ -34,18 +34,18 @@ public class ActionFacade implements AutoCloseable {
 
     private HttpServletRequest request;
     private HttpSession session;
-    
+
     private CategoryFacade categoryFacade;
     private BookFacade bookFacade;
     private OrderManager orderManager;
 
     private ShoppingCart cart;
 
-    
     public ActionFacade(HttpServletRequest request) {
         this.request = request;
         this.session = request.getSession();
-        
+        this.cart = (ShoppingCart) session.getAttribute("cart");
+
         try {
             Context ctx = new InitialContext();
             this.categoryFacade = (CategoryFacade) ctx.lookup(
@@ -59,30 +59,34 @@ public class ActionFacade implements AutoCloseable {
         }
     }
 
-    
     public static ActionFacade create(HttpServletRequest request) {
         ActionFacade facade = new ActionFacade(request);
         instance.set(facade);
         return facade;
     }
 
-    
     public static ActionFacade getCurrentInstance() {
         return instance.get();
     }
 
-    
     @Override
     public void close() {
         instance.remove();
     }
-
     
+    public HttpServletRequest getServletRequest() {
+        return request;
+    }
+
+    public String getReffererUri() {
+        String pathTrace = request.getHeader("referer");
+        return pathTrace.split("ReadersParadise/")[1];
+    }
+
     public void setFeaturedCategories() {
         session.setAttribute("featuredCategories", categoryFacade.findRandom(5));
     }
 
-    
     public void setSelectedCategory() {
         String categoryName = request.getParameter("category");
 
@@ -97,18 +101,10 @@ public class ActionFacade implements AutoCloseable {
         session.setAttribute("categoryBooks", categoryBooks);
     }
 
-    
     public void setAllCategories() {
         request.setAttribute("categories", categoryFacade.findAll());
     }
-    
-    
-    public String getReffererUri() {
-        String pathTrace = request.getHeader("referer");
-        return pathTrace.split("ReadersParadise/")[1];
-    }
 
-    
     public void addBookToCart() {
         String bookId = request.getParameter("bookId");
         if (!bookId.isEmpty()) {
@@ -117,14 +113,11 @@ public class ActionFacade implements AutoCloseable {
         }
     }
 
-    
     public void calculateTotal() {
         cart.calculateTotal(session.getServletContext().getInitParameter("deliverySurcharge"));
     }
 
-    
     public ShoppingCart getShoppingCart() {
-        cart = (ShoppingCart) session.getAttribute("cart");
 
         if (cart == null) {
             cart = new ShoppingCart();
@@ -133,7 +126,6 @@ public class ActionFacade implements AutoCloseable {
         return cart;
     }
 
-    
     public void setYearMonths() {
         session.setAttribute("months",
                 Stream.of(Month.values())
@@ -143,7 +135,6 @@ public class ActionFacade implements AutoCloseable {
         session.setAttribute("currentYear", Year.now().getValue());
     }
 
-    
     public boolean isCheckoutValid() {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
@@ -164,7 +155,6 @@ public class ActionFacade implements AutoCloseable {
         return true;
     }
 
-    
     public int placeOrder() {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
@@ -181,13 +171,14 @@ public class ActionFacade implements AutoCloseable {
         if (orderId == 0) {
             request.setAttribute("validationErrorFlag", true);
         }
+
+        cart = null;
+        session.invalidate();
+
         return orderId;
     }
 
-    
     public void setOrderDetails(int orderId) {
-        cart = null;
-        session.invalidate();
         Map orderMap = orderManager.getOrderDetails(orderId);
         request.setAttribute("customer", orderMap.get("customer"));
         request.setAttribute("books", orderMap.get("books"));
@@ -195,21 +186,18 @@ public class ActionFacade implements AutoCloseable {
         request.setAttribute("orderedBooks", orderMap.get("orderedBooks"));
     }
 
-    
     public void cartDecrementBook() {
         String bookId = request.getParameter("bookId");
         Book book = bookFacade.find(Integer.parseInt(bookId));
         getShoppingCart().decrement(book);
     }
 
-    
     public void cartIncrementBook() {
         String bookId = request.getParameter("bookId");
         Book book = bookFacade.find(Integer.parseInt(bookId));
         getShoppingCart().increment(book);
     }
 
-    
     public void cartRemoveBook() {
         String bookId = request.getParameter("bookId");
         Book book = bookFacade.find(Integer.parseInt(bookId));

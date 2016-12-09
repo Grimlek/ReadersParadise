@@ -22,7 +22,7 @@
                     <caption>Order Summary</caption>
                     <tbody>
                         <tr>
-                            <td>
+                            <td class="right-label">
                                 <label>Confirmation Number: </label>
                             </td>
                             <td>
@@ -30,7 +30,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="right-label">
                                 <label>Shipping Cost: </label>
                             </td>
                             <td>
@@ -38,7 +38,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="right-label">
                                 <label>Order Total: </label>
                             </td>
                             <td>
@@ -46,7 +46,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="right-label">
                                 <label>Order Date: </label>
                             </td>
                             <td>
@@ -56,19 +56,19 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="right-label">
                                 <label>Credit Card Number: </label>
                             </td>
                             <td>
                                 <label>
                                     <c:out value="${fn:substring(customer.ccNumber, 
-                                      fn:length(customer.ccNumber) - 4, 
-                                      fn:length(customer.ccNumber))}" />
+                                                    fn:length(customer.ccNumber) - 4, 
+                                                    fn:length(customer.ccNumber))}" />
                                 </label>
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="right-label">
                                 <label>Expiration Date: </label>
                             </td>
                             <td>
@@ -91,7 +91,7 @@
                         </tr>
                         <c:forEach var="orderedBook" items="${orderedBooks}" varStatus="iter">
                             <tr>
-                                <td>
+                                <td class="right-label">
                                     <label>${books[iter.index].title}</label>
                                 </td>
                                 <td>
@@ -106,6 +106,6 @@
                 </table>
             </div>
         </div>
-        <jsp:include page="../jspf/footer.jspf" />
+        <%@include file="../jspf/footer.jspf" %>
     </body>
 </html>

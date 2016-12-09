@@ -69,6 +69,6 @@
                 </a>
             </section>
         </main>
-        <jsp:include page="../jspf/footer.jspf" />
+        <%@include file="../jspf/footer.jspf" %>
     </body>
 </html>

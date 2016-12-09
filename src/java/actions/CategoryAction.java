@@ -13,5 +13,4 @@ public class CategoryAction implements Action {
         facade.setAllCategories();
         return "category";
     }
-
 }
