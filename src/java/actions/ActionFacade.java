@@ -104,6 +104,10 @@ public class ActionFacade implements AutoCloseable {
     public void setAllCategories() {
         request.setAttribute("categories", categoryFacade.findAll());
     }
+    
+    public boolean isAjaxRequest() {
+        return request.getHeader("x-requested-with") != null; 
+    }
 
     public void addBookToCart() {
         String bookId = request.getParameter("bookId");

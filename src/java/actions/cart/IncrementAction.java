@@ -17,6 +17,9 @@ public class IncrementAction implements Action {
     @Override
     public String execute(ActionFacade facade) throws Exception {
         facade.cartIncrementBook();
+        if (facade.isAjaxRequest()) {
+            return "NO_REDIRECT";
+        }
         return "cart";
     }
 

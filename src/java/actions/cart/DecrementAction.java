@@ -17,6 +17,9 @@ public class DecrementAction implements Action {
     @Override
     public String execute(ActionFacade facade) throws Exception {
         facade.cartDecrementBook();
+        if (facade.isAjaxRequest()) {
+            return "NO_REDIRECT";
+        }
         return "cart";
     }
 

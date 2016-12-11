@@ -19,10 +19,8 @@ public class ActionFactory {
     
     public static Action getAction(HttpServletRequest request) {
         if (request.getPathInfo() != null) {
-            System.out.println(request.getMethod() + request.getServletPath() + request.getPathInfo());
             return actions.get(request.getMethod() + request.getServletPath() + request.getPathInfo());
         }
-        System.out.println(request.getMethod() + request.getServletPath());
         return actions.get(request.getMethod() + request.getServletPath());
     }
 }

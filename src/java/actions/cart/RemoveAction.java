@@ -17,6 +17,9 @@ public class RemoveAction implements Action {
     @Override
     public String execute(ActionFacade facade) throws Exception {
         facade.cartRemoveBook();
+        if (facade.isAjaxRequest()) {
+            return "NO_REDIRECT";
+        }
         return "cart";
     }
 

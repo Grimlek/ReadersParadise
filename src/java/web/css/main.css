@@ -1,0 +1,737 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 13, 2016, 11:20:25 PM
+    Author     : csexton
+*/
+body {
+    font-family: Georgia, "Times New Roman", Serif;
+    background-color: #F4F8FF;
+}
+
+main {
+    width: 90%;
+    min-height: 370px;
+    margin-left: 5%;
+}
+
+header {
+    padding-top: 1.5%;
+    width: 95%;
+    min-width: 860px;
+    margin: 0 auto;
+}
+
+.align-top {
+    vertical-align: top;
+}
+
+.center {
+    text-align: center;
+}
+
+.bgd-clr-white {
+    background-color: #FFFFFF;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.xls-pad-top {
+    padding-top: 2%;
+}
+
+.xls-pad-bot {
+    padding-bottom: 2%;
+}
+
+.xls-pad-left {
+    padding-left: 2%;
+}
+
+.sml-pad-bot {
+    padding-bottom: 5%;
+}
+
+.sml-pad-top {
+    padding-top: 5%;
+}
+
+.sml-pad-left {
+    padding-left: 5%;
+}
+
+.sml-pad-right {
+    padding-right: 5%;
+}
+
+.inline {
+    display: inline;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.txt-dec-none {
+    text-decoration: none;
+}
+
+.width-1 {
+    width: 10%;
+}
+
+.width-3 {
+    width: 30%;
+}
+
+.width-4 {
+    width: 40%;
+}
+
+.width-7 {
+    width: 70%;
+}
+
+.width-8 {
+    width: 80%;
+}
+
+.height-4 {
+    height: 40%;
+}
+
+.press-effect:active {
+    position: relative;
+    top: 1px;
+    outline: none;
+    -moz-user-select: none; 
+    -webkit-user-select: none; 
+    -ms-user-select:none; 
+    -user-select: none;
+}
+
+#category-content section {
+    width: 100%;
+}
+
+.prod-container {
+    display: inline-block;
+    border: 1px solid #000000;
+    border-radius: 18px;
+    vertical-align: top;
+    padding: 2% 1%;
+    width: 35%;
+    margin: 2%;
+    min-height: 70%;
+}
+
+.selected {
+    color: #FFFFFF !important;
+    background-color: #000000 !important;
+}
+
+.selected:hover {
+    background-color: #4273B8 !important;
+    color: #FFFFFF !important;
+}
+
+header h1 {
+    color: #4273B8;
+    font-size: 3.5em;
+    font-weight: 700;
+    text-shadow: 1px 1px #343BB0, 2px 2px 0 #426AA6, 3px 3px 0 #4273B8, 2px 2px 1px rgba(0, 0, 0, 0.5), 0 0 1.5px rgba(0, 0, 0, .2);
+}
+
+.usr-select-no {
+    -moz-user-select: none; 
+    -webkit-user-select: none; 
+    -ms-user-select:none; 
+    -user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none; 
+}
+
+#cart button {
+    background-image: url( 'images/cart.png' );
+    background-size: 100px 130px;
+    height: 134px;  
+    width: 104px;
+}
+
+
+#cart a span {
+    color: #000000;
+}
+
+#cart a {
+    font-size: 1.5em;
+}
+
+#search input {
+    font-size: 20px;
+    line-height: 1.5em;
+    margin: 3% .5% 0 -17%;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-left: 1%;
+}
+
+#search button {
+    position: absolute;
+    cursor: pointer;
+    padding-top: 2.9%;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    overflow: hidden;
+    outline:none;
+}
+
+#welcome div {
+    margin-top: 4%;
+}
+
+#welcome h2 {
+    margin: 0 auto;
+    line-height: 2.25em;
+    color: #228B22;
+    font-weight: 700;
+}
+
+#welcome p {
+    font-size: 1.25em;
+    font-weight: 500;
+    color: #B22222;
+    margin: 4% 10% 15%;
+}
+
+#welcome div span {
+    width: 35%;
+    position: relative;
+    font-size: 1.2em;
+    font-weight: 600;
+    font-style: italic;
+    bottom: 75px;
+    color: #D3853D;
+    margin-left: 5%;
+}
+
+#welcome img {
+    margin-right: 4%;
+    position: relative;
+}
+
+#featured-categories {
+    width: 55%;
+}
+
+#featured-categories h2 {
+    color: #B22222;
+    font-weight: 700;
+    line-height: 0;
+}
+
+#featured-categories a h4 {
+    line-height: .5%;
+    color: #00008B;
+}
+
+section, #no-items-container, #items-container {
+    border-radius: 32px;
+}
+
+#business {
+    margin-top: 2%;
+    margin-left: 10%;
+}
+
+#social-media {
+    width: 8%;
+    margin: 2% 1% 1.5% 0;
+}
+
+#languages {
+    margin: 2.25% 5% 1.5% 0;
+}
+
+#social-media a, #languages a {
+    margin-right: 2%;
+}
+
+#product, #reviews, #write-review {
+    width: 77%;
+    margin: 0 auto;
+}
+
+.product-image {
+    width: 250px;
+    height: 325px;
+    margin-left: 5%;
+}
+
+#login-button {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #4273b8), color-stop(1, #D9DFF2));
+    background: -moz-linear-gradient(top, #4273B8 5%, #D9DFF2 100%);
+    background: -webkit-linear-gradient(top, #4273B8 5%, #D9DFF2 100%);
+    background: -o-linear-gradient(top, #4273B8 5%, #D9DFF2 100%);
+    background: -ms-linear-gradient(top, #4273B8 5%, #D9DFF2 100%);
+    background: linear-gradient(to bottom, #4273B8 15%, #D9DFF2 100%);
+    background-color: #4273B8;
+    -moz-box-shadow: inset 0px 1px 0px 0px #2C4F8A;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #2C4F8A;
+    box-shadow: inset 0px 1px 0px 0px #2C4F8A;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4273B8', endColorstr='#D9DFF2',GradientType=0);
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    border: 3px solid #426AA6;
+    color: #F7F7F7;
+    font-size: 20px;
+    font-weight: 700;
+    padding: .625% 2.25%;
+    text-shadow: 2px 4.5px 2px #343BB0;
+}
+
+#login-button:hover {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #D9DFF2), color-stop(1, #4273B8));
+    background: -moz-linear-gradient(top, #D9DFF2 5%, #4273B8 100%);
+    background: -webkit-linear-gradient(top, #D9DFF2 5%, #4273B8 100%);
+    background: -o-linear-gradient(top, #D9DFF2 5%, #4273B8 100%);
+    background: -ms-linear-gradient(top, #D9DFF2 5%, #4273B8 100%);
+    background: linear-gradient(to bottom, #D9DFF2 5%, #4273B8 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D9DFF2', endColorstr='#4273B8',GradientType=0);
+    background-color: #D9DFF2;
+}
+
+
+
+.drk-red-btn {
+    border-top: 1px solid #73000A;
+    background: #6E1818;
+    background: -webkit-gradient(linear, left top, left bottom, from(#C9384B), to(#6E1818));
+    background: -webkit-linear-gradient(top, #c9384B, #6E1818);
+    background: -moz-linear-gradient(top, #C9384B, #6E1818);
+    background: -ms-linear-gradient(top, #C9384B, #6E1818);
+    background: -o-linear-gradient(top, #C9384B, #6E1818);
+    padding: 1.5% 2.5%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+    -moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+    box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+#add-to-cart {
+    margin-top: 10%;
+    border-style: none;
+    width: 34%;
+    -webkit-appearance:none;
+    outline: none;
+}
+
+.drk-red-btn:hover {
+    border-top-color: #000000;
+    background: #000000;
+    outline: none;
+}
+
+.blue-btn {
+    border-top: 1px solid #0B23BF;
+    background: #386cf0;
+    background: -webkit-gradient(linear, left top, left bottom, from(#3A4ECF), to(#386CF0));
+    background: -webkit-linear-gradient(top, #3A4ECF, #386CF0);
+    background: -moz-linear-gradient(top, #3A4ECF, #386CF0);
+    background: -ms-linear-gradient(top, #3A4ECF, #386CF0);
+    background: -o-linear-gradient(top, #3A4ECF, #386CF0);
+    padding: 1.5% 2.5%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: #FFFFFF;
+    vertical-align: middle;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.blue-btn:hover {
+    border-top-color: #0D21A6;
+    background: #0D21A6;
+}
+
+#write-review, #reviews {
+    margin-top: 5%;
+}
+
+#write-review form div {
+    padding-left: 14%;
+}
+
+#write-review form input {
+    margin-left: 13.5%;
+    margin-top: 2%;
+    padding: 1% 5% 1% 5%;
+    font-family: Georgia, "Times New Roman", Serif;
+}
+
+textarea {
+    border-radius: 20px;
+    border: 2px solid #000000;
+    padding-left: 1.5%;
+    padding-top: 1.5%;
+    padding-right: 1.5%;
+    padding-bottom: 1.5%;
+    font-size: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#reviews a.blue-btn {
+    display: inline-block;
+    margin-top: 3%;
+    margin-left: 35%;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+#customer-review {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 3%;
+}
+
+#sidebar {
+    width: 20%;
+    border-radius: 32px;
+    clear: left;
+    margin-left: 2%;
+}
+
+#category-list {
+    padding: 0;
+    list-style: none;
+}
+
+#sidebar h1 {
+    color: #4273B8;
+    font-size: 2em;
+    font-weight: 500;
+    text-shadow: 1px 1px 0 #426AA6, 2px 2px 0 #4273B8, 1px 1px .5px rgba(0, 0, 0, 0.5), .5px .5px .25px rgba(0, 0, 0, .2);
+}
+
+#category-list li a {
+    font-size: 1.25em;
+    display: block;
+    border: 1px solid #000000;
+    padding: 5% 5%;
+    border-radius: 10px;
+    background-color: #4273B8;
+    color: #FFFFFF;
+    font-weight: 500;
+    width: 55%;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+#category-list li a:hover {
+    color: #FFFFFF;
+    background-color: #000000;
+}
+
+#category-content {
+    width: 72%;
+    margin-left: 3.25%;
+    margin-top: 3.5%;
+}
+
+#category-title {
+    color: #4273B8;
+    font-size: 2.5em;
+    font-weight: 700;
+    text-shadow: 1.75px 1.75px 0 #426AA6, .95px .95px .375px rgba(0, 0, 0, 0.5);
+}
+
+#title {
+    font-size: 1.2em;
+    color: #000000;
+    text-decoration: none;
+    line-height: 175%;
+}
+
+#read-now {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#no-items-container {
+    min-height: 175px;
+}
+
+#items-container {
+    padding-top: 1%;
+    margin-top: 5%;
+}
+
+.item-content {
+    overflow: hidden;
+    text-align: left;
+    padding: 1.5% 0;
+    margin: 0 2%;
+    border-bottom: 1.5px solid #000000;
+}
+
+.left-item-content {
+    display: inline-block;
+    float: left;
+    width: 77%;
+}
+
+.item-description {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+}
+
+#purchase-details {
+    display: inline-block;
+    width: 16%;
+}
+
+.item-price-container {
+    margin-bottom: 10%;
+}
+
+.item-author-container, .item-qty, .item-price {
+    font-size: 1.2em;
+}
+
+.item-title {
+    margin: 5% 0 0 0;
+    font-size: 1.5em;
+    width: 100%;
+}
+
+#continue-shopping, #proceed-to-checkout {
+    margin: 0 5%;
+}
+
+#cart-actions-container {
+    margin-top: 2%;
+}
+
+#cart-subtotal {
+    font-size: 1.5em;
+}
+
+.remove-book {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 5%;
+}
+
+.remove-default-button {
+    cursor: pointer;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    overflow: hidden;
+    outline: none;
+}
+
+#checkout-form input[type=text], 
+#checkout-form input[type=password], 
+#checkout-form input[type=email] {
+    display: block;
+    font-size: 1em;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 1% 1% 1% 2%;
+    margin: 1% 1% 2.8%;
+    width: 100%;
+}
+
+.checkout-container {
+    min-width: 450px;
+    text-align: center;
+    padding-top: 1%;
+    border-radius: 25px;
+}
+
+#checkout-form {
+    margin-bottom: 3%;
+}
+
+#checkout-form select {
+    font-size: 1em;
+}
+
+#checkout-form table {
+    width: 90%;
+    margin-bottom: 3%;
+}
+
+#checkout-form table tbody tr td:first-of-type {
+    text-align: right;
+    font-size: 1.1em;
+    padding-right: 2%;
+    vertical-align: middle;
+}
+
+#checkout-form table tbody tr td:nth-child(2) {
+    text-align: left;
+}
+
+.order-summary-total {
+    width: 240px;
+    text-align: right;
+    vertical-align: top;
+    margin-left: 6%;
+    margin-top: 5%;
+    border-radius: 20px;
+}
+#checkout-header, #checkout-headline {
+    color: #4273B8;
+}
+
+#checkout-headline {
+    font-size: 1.1em;
+}
+
+.order-summary-total div:nth-child(2) {
+    border-bottom: 1px solid #000000;
+}
+
+.order-summary-total div label, .order-summary-total div span {
+    font-size: 1.1em;
+    margin: 0;
+    display: inline-block;
+}
+
+.order-summary-total div {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.order-summary-total div label {
+    width:  60%;
+}
+
+.order-summary-total div span {
+    width: 40%;
+}
+
+.hide {
+    display: none !important;
+}
+
+#errors li {
+    list-style: none;
+    font-size: 1.1em;
+    color: RED;
+}
+
+caption {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 2%;
+}
+
+.right-label {
+    text-align: right;
+    padding-right: 4%; 
+    white-space: nowrap;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+#confirmation-container {
+    height: 410px;
+}
+
+.order-summary, .ordered-books {
+    background-color: #FFFFFF;
+    display: inline-block;
+    margin-top: 5%;
+    border-radius: 20px;
+    vertical-align: top;
+}
+
+.order-summary table tr td, .ordered-books table tr td {
+    padding-top: 1%;
+}
+
+.order-summary {
+    min-width: 350px;
+}
+
+.order-summary table {
+    min-width: 300px;
+    font-size: 1.1em;
+    margin: 0 auto;
+    padding-bottom: 2%;
+}
+
+.order-summary caption {
+    margin-top: 2%;
+}
+
+.ordered-books {
+    margin-left: 5%;
+    min-width: 525px;
+}
+
+.ordered-books table {
+    min-width: 450px;
+    font-size: 1.1em;
+    margin: 0 auto;
+    padding-bottom: 2%;
+}
+
+.ordered-books caption {
+    margin-top: 2%;
+}
+
+.ordered-books table tr:not(:first-child) td:nth-child(2) {
+    min-width: 55px;
+}
+
+.ordered-books table tr:first-of-type td {
+    border-bottom: 1px solid #000000;
+    padding-bottom: 1%;
+}
+
+.ordered-books table tr:first-of-type td:first-of-type {
+    text-align: center !important;
+}
+
+.increment-form, .decrement-form {
+    display: inline-block;
+}
+
+#cart-container {
+    -moz-user-select: none; 
+    -webkit-user-select: none; 
+    -ms-user-select:none; 
+    -user-select: none;
+}

@@ -3,24 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package actions.cart;
-
-import actions.Action;
-import actions.ActionFacade;
+package actions;
 
 /**
  *
  * @author csexton
  */
-public class AddAction implements Action {
+public class ProductAction implements Action {
 
     @Override
     public String execute(ActionFacade facade) throws Exception {
-        facade.addBookToCart();
-        if (facade.isAjaxRequest()) {
-            return "NO_REDIRECT";
-        }
-        return facade.getReffererUri();
+        // implement product page per query string id....
+        return "product";
     }
-
+    
 }
