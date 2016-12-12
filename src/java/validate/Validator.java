@@ -7,68 +7,57 @@ package validate;
 
 import java.time.Year;
 import java.time.YearMonth;
-import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Validator {
 
-    public static boolean validateForm(String name,
+    public static Map<String, Boolean> validateForm(String name,
             String email,
             String phone,
             String address,
             YearMonth expirationDate,
-            String ccNumber,
-            HttpServletRequest request) {
-
+            String ccNumber) {
+        
+        Map<String, Boolean> errorMap = new HashMap<>();
         boolean errorFlag = false;
-        boolean nameError;
-        boolean emailError;
-        boolean phoneError;
-        boolean addressError;
-        boolean expirationDateError;
-        boolean ccNumberError;
 
         if (name == null
                 || name.equals("")
                 || name.length() < 5) {
             errorFlag = true;
-            nameError = true;
-            request.setAttribute("nameError", nameError);
+            errorMap.put("nameError", true);
         }
         if (!email.equals("")
                 && !email.contains("@")) {
             errorFlag = true;
-            emailError = true;
-            request.setAttribute("emailError", emailError);
+            errorMap.put("emailError", true);
         }
         if (phone == null
                 || phone.equals("")
                 || phone.length() < 9) {
             errorFlag = true;
-            phoneError = true;
-            request.setAttribute("phoneError", phoneError);
+            errorMap.put("phoneError", true);
         }
         if (address == null
                 || address.equals("")
                 || address.length() < 5) {
             errorFlag = true;
-            addressError = true;
-            request.setAttribute("addressError", addressError);
+            errorMap.put("addressError", true);
         }
         if (expirationDate == null
                 || (expirationDate.getMonthValue() < YearMonth.now().getMonthValue()
                 && expirationDate.getYear() == Year.now().getValue())) {
             errorFlag = true;
-            expirationDateError = true;
-            request.setAttribute("expirationeDateError", expirationDateError);
+            errorMap.put("expirationeDateError", true);
         }
         if (ccNumber == null
                 || ccNumber.equals("")
                 || ccNumber.length() < 16) {
             errorFlag = true;
-            ccNumberError = true;
-            request.setAttribute("ccNumError", ccNumberError);
+            errorMap.put("ccNumError", true);
         }
-        request.setAttribute("errorFlag", errorFlag);
-        return errorFlag;
+        errorMap.put("errorFlag", errorFlag);
+        return errorMap;
     }
 }

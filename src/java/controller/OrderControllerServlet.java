@@ -1,11 +1,16 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package controller;
 
 import actions.Action;
-import actions.ActionFacade;
 import actions.ActionFactory;
-import actions.CategoryAction;
-import actions.HomeAction;
-import actions.ProductAction;
+import actions.order.CheckoutAction;
+import actions.order.ConfirmationAction;
+import actions.order.OrderActionFacade;
+import actions.order.PurchaseAction;
 import java.io.IOException;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -19,42 +24,40 @@ import javax.servlet.http.HttpServletResponse;
  * @author csexton
  */
 @WebServlet(
-        name = "ControllerServlet",
+        name = "OrderControllerServlet",
         urlPatterns = {
-            "",
-            "/index",
-            "/category",
-            "/product"
+            "/purchase",
+            "/checkout",
+            "/confirmation"
         }
 )
-public class ControllerServlet extends HttpServlet {
+public class OrderControllerServlet extends HttpServlet {
 
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
         super.init(servletConfig);
-        
+
+        // POST Requests
+        ActionFactory.actions.put("POST/purchase", new PurchaseAction());
+
         // GET Requests
-        ActionFactory.actions.put("GET/product", new ProductAction());
-        ActionFactory.actions.put("GET/category", new CategoryAction());
-        ActionFactory.actions.put("GET/index", new HomeAction());
-        ActionFactory.actions.put("GET/", new HomeAction());
-        ActionFactory.actions.put("GET", new HomeAction());
+        ActionFactory.actions.put("GET/confirmation", new ConfirmationAction());
+        ActionFactory.actions.put("GET/checkout", new CheckoutAction());
     }
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        try (ActionFacade facade = ActionFacade.create(request, response)) {
+        try (OrderActionFacade facade = OrderActionFacade.create(request, response)) {
+
             Action action = ActionFactory.getAction(request);
             String view = action.execute(facade);
-            
-            if (request.getServletPath().equals("") || view.equals(request.getServletPath().substring(1))) {
+
+            if (view.equals(request.getServletPath().substring(1))) {
                 request.getRequestDispatcher("/WEB-INF/views/" + view + ".jsp").forward(request, response);
-            } 
-            else if (!view.equals("NO_REDIRECT")) {
+            } else if (!view.equals("NO_REDIRECT")) {
                 response.sendRedirect(request.getContextPath() + "/" + view);
-            }
-            else {
+            } else {
                 response.setStatus(HttpServletResponse.SC_NO_CONTENT);
             }
         } catch (NullPointerException e) {
@@ -63,4 +66,5 @@ public class ControllerServlet extends HttpServlet {
             throw new ServletException("Executing action failed.", e);
         }
     }
+
 }

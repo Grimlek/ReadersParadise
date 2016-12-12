@@ -6,16 +6,15 @@
 package actions.cart;
 
 import actions.Action;
-import actions.ActionFacade;
 
 /**
  *
  * @author csexton
  */
-public class AddAction implements Action {
+public class AddAction implements Action<CartActionFacade> {
 
     @Override
-    public String execute(ActionFacade facade) throws Exception {
+    public String execute(CartActionFacade facade) throws Exception {
         facade.addBookToCart();
         if (facade.isAjaxRequest()) {
             return "NO_REDIRECT";

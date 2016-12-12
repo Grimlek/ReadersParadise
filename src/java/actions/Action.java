@@ -5,6 +5,6 @@
  */
 package actions;
 
-public interface Action {
-    public String execute(ActionFacade facade) throws Exception;
+public interface Action<T extends GenericActionFacade> {
+    public String execute(T facade) throws Exception;
 }

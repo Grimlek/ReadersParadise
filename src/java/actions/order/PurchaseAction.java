@@ -3,18 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package actions;
+package actions.order;
+
+import actions.Action;
 
 /**
  *
  * @author csexton
  */
-public class PurchaseAction implements Action {
+public class PurchaseAction implements Action<OrderActionFacade> {
     
     @Override
-    public String execute(ActionFacade facade) throws Exception {
+    public String execute(OrderActionFacade facade) throws Exception {
         
         if (!facade.isCheckoutValid()) {
+            facade.createValidationFlashScope();
             return "checkout";
         }
 
@@ -23,7 +26,6 @@ public class PurchaseAction implements Action {
         if (orderId == 0) {
             return "checkout";
         }
-
         return "confirmation?id=" + orderId;
     }
 

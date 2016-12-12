@@ -3,16 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package actions;
+package actions.order;
+
+import actions.Action;
 
 /**
  *
  * @author csexton
  */
-public class ConfirmationAction implements Action {
+public class ConfirmationAction implements Action<OrderActionFacade> {
 
     @Override
-    public String execute(ActionFacade facade) throws Exception {
+    public String execute(OrderActionFacade facade) throws Exception {
         String orderId = facade.getServletRequest().getParameter("id");
         if (orderId.matches("^\\d+$")) {
             facade.setOrderDetails(Integer.parseInt(orderId));                    

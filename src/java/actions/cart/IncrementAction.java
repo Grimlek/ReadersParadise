@@ -12,11 +12,11 @@ import actions.ActionFacade;
  *
  * @author csexton
  */
-public class IncrementAction implements Action {
+public class IncrementAction implements Action<CartActionFacade> {
     
     @Override
-    public String execute(ActionFacade facade) throws Exception {
-        facade.cartIncrementBook();
+    public String execute(CartActionFacade facade) throws Exception {
+        facade.incrementCartBook();
         if (facade.isAjaxRequest()) {
             return "NO_REDIRECT";
         }

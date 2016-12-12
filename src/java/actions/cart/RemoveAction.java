@@ -12,11 +12,11 @@ import actions.ActionFacade;
  *
  * @author csexton
  */
-public class RemoveAction implements Action {
+public class RemoveAction implements Action<CartActionFacade> {
 
     @Override
-    public String execute(ActionFacade facade) throws Exception {
-        facade.cartRemoveBook();
+    public String execute(CartActionFacade facade) throws Exception {
+        facade.removeCartBook();
         if (facade.isAjaxRequest()) {
             return "NO_REDIRECT";
         }

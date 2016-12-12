@@ -14,12 +14,14 @@ body {
 
 main {
     width: 90%;
+    min-height: 370px;
     margin-left: 5%;
 }
 
 header {
     padding-top: 1.5%;
     width: 95%;
+    min-width: 860px;
     margin: 0 auto;
 }
 
@@ -481,7 +483,7 @@ textarea {
 }
 
 #no-items-container {
-    height: 29%;
+    min-height: 175px;
 }
 
 #items-container {
@@ -540,7 +542,7 @@ textarea {
     font-size: 1.5em;
 }
 
-#remove-book {
+.remove-book {
     display: inline-block;
     vertical-align: top;
     padding-top: 5%;
@@ -638,7 +640,7 @@ textarea {
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }
 
 #errors li {
@@ -653,9 +655,13 @@ caption {
     margin-bottom: 2%;
 }
 
-#confirmation-container div table tbody tr td:nth-child(1) {
+.right-label {
     text-align: right;
     padding-right: 4%; 
+    white-space: nowrap;
+}
+
+.nowrap {
     white-space: nowrap;
 }
 
@@ -696,6 +702,7 @@ caption {
 }
 
 .ordered-books table {
+    min-width: 450px;
     font-size: 1.1em;
     margin: 0 auto;
     padding-bottom: 2%;
@@ -716,4 +723,15 @@ caption {
 
 .ordered-books table tr:first-of-type td:first-of-type {
     text-align: center !important;
+}
+
+.increment-form, .decrement-form {
+    display: inline-block;
+}
+
+#cart-container {
+    -moz-user-select: none; 
+    -webkit-user-select: none; 
+    -ms-user-select:none; 
+    -user-select: none;
 }

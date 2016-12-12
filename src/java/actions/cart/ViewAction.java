@@ -12,10 +12,10 @@ import actions.ActionFacade;
  *
  * @author csexton
  */
-public class ViewAction implements Action{
+public class ViewAction implements Action<CartActionFacade> {
 
     @Override
-    public String execute(ActionFacade facade) throws Exception {
+    public String execute(CartActionFacade facade) throws Exception {
         return "cart";
     }
     

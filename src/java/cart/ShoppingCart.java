@@ -38,13 +38,13 @@ public class ShoppingCart {
     public synchronized void addItem(Book book) {
 
         List<ShoppingCartItem> matchingItems = getMatchingBooks(book);
-
+        
         if (matchingItems.isEmpty()) {
             ShoppingCartItem item = new ShoppingCartItem(book);
             items.add(item);
-        } else {
-            ShoppingCartItem item = matchingItems.get(0);
-            item.incrementQuantity();
+        } 
+        else if (matchingItems.get(0).getQuantity() < 10) {
+            matchingItems.get(0).incrementQuantity();
         }
     }
 

@@ -9,7 +9,7 @@ package actions;
  *
  * @author csexton
  */
-public class LanguageAction implements Action {
+public class LanguageAction implements Action<ActionFacade> {
 
     @Override
     public String execute(ActionFacade facade) throws Exception {

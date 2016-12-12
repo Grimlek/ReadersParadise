@@ -66,30 +66,26 @@
                                             <span class="item-price">Price: $${item.book.price}</span>
                                         </div>
                                         <div class="item-qty-container">
-                                            <p id="${item.book.id}-item-qty" class="item-qty xls-pad-bot">
-                                                Quantity: ${item.quantity}
-                                            </p>
-                                            <form id="increment" action="increment" method="post">
+                                            <p id="${item.book.id}-item-qty" class="item-qty xls-pad-bot">Quantity: ${item.quantity}</p>
+                                            <form class="increment-form" action="increment" method="post">
                                                 <input type="hidden" name="bookId" value="${item.book.id}">
-                                                <button class="remove-default-button" type="submit">
+                                                <button class="increment remove-default-button" type="submit">
                                                     <img class="xls-pad-top press-effect" src="${initParam.imagePath}plus-button.png" 
                                                          alt="Increment Quantity" />
                                                 </button>
                                             </form>
-                                            <c:if test="${item.quantity > 1}">
-                                                <form id="decrement" action="decrement" method="post">
-                                                    <input type="hidden" name="bookId" value="${item.book.id}">
-
-                                                    <button class="remove-default-button" type="submit">
-                                                        <img class="xls-pad-top press-effect" src="${initParam.imagePath}minus-button.png" 
-                                                             alt="Decrement Quantity" />
-                                                    </button>
-                                                </form>
-                                            </c:if>
+                                            <form class="decrement-form <c:if test="${item.quantity < 2}">hide</c:if>" 
+                                                  action="decrement" method="post">
+                                                <input type="hidden" name="bookId" value="${item.book.id}">
+                                                <button class="decrement remove-default-button" type="submit">
+                                                    <img class="xls-pad-top press-effect" src="${initParam.imagePath}minus-button.png" 
+                                                         alt="Decrement Quantity" />
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
-                                    <form id="remove-book" action="remove" method="post">
-                                        <input type="hidden" name="bookId" value="${item.book.id}">
+                                    <form class="remove-book" action="remove" method="post">
+                                        <input type="hidden" id="bookId" name="bookId" value="${item.book.id}">
                                         <button class="remove remove-default-button" type="submit" name="action" value="remove">
                                             <img class="xls-pad-top press-effect" src="${initParam.imagePath}delete-button.png" 
                                                  alt="Remove Book" />
@@ -97,12 +93,13 @@
                                     </form>
                                 </div>
                             </c:forEach>
-                            <p id="cart-subtotal">Subtotal (${cart.numberOfItems} items): $${cart.subtotal}</p>
+                            <p id="cart-subtotal">Subtotal (${cart.numberOfItems} items): $<span id="subtotal">${cart.subtotal}</span></p>
                         </div>
                     </div>
                 </c:otherwise>
             </c:choose>
         </main>
         <%@include file="../jspf/footer.jspf" %>
+        <script src="/ReadersParadise/js/app.js"></script>
     </body>
 </html>

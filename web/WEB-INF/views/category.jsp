@@ -82,8 +82,7 @@
                                 <img src="${initParam.starImagePath}four-and-half-stars.png" 
                                      alt="Review Stars" />
                             </div>
-                            <form class="inline" action="cart/add" method="post">
-                                <input type="hidden" name="action" value="addToCart">
+                            <form class="add-to-cart-form inline" action="cart/add" method="post">
                                 <input type="hidden" name="bookId" value="${book.id}">
                                 <button id="add-to-cart" 
                                    class="inline-block press-effect drk-red-btn usr-select-no center" 
@@ -106,5 +105,6 @@
             </section>
         </main>
         <%@include file="../jspf/footer.jspf" %>
+        <script src="/ReadersParadise/js/app.js"></script>
     </body>
 </html>

@@ -5,7 +5,7 @@
  */
 package actions;
 
-public class CategoryAction implements Action {
+public class CategoryAction implements Action<ActionFacade> {
 
     @Override
     public String execute(ActionFacade facade) throws Exception {
