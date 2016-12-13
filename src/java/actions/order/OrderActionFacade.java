@@ -73,12 +73,11 @@ public class OrderActionFacade extends GenericActionFacade implements AutoClosea
         String address = request.getParameter("address");
         String phone = request.getParameter("phone-num");
         String ccNum = request.getParameter("cc-num");
-        YearMonth expirationDate = YearMonth.of(
-                Integer.valueOf(request.getParameter("year")),
-                Integer.valueOf(request.getParameter("month")));
+        String year = request.getParameter("year");
+        String month = request.getParameter("month");
 
         Map<String, Boolean> validationErrors = Validator.validateForm(
-                name, email, phone, address, expirationDate, ccNum);
+                name, email, phone, address, year, month, ccNum);
 
         if (validationErrors.get("errorFlag")) {
             super.setFlashScope(validationErrors);

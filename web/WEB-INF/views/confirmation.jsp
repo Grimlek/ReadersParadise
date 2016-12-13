@@ -19,11 +19,11 @@
         <div id="confirmation-container">
             <div class="order-summary">
                 <table class="bgd-clr-white">
-                    <caption>Order Summary</caption>
+                    <caption><fmt:message key='tableHeaderSummary'/></caption>
                     <tbody>
                         <tr>
                             <td class="right-label">
-                                <label>Confirmation Number: </label>
+                                <label><fmt:message key='confirmationNumber'/>: </label>
                             </td>
                             <td>
                                 <label>${orderRecord.confirmationNumber}</label>
@@ -31,7 +31,7 @@
                         </tr>
                         <tr>
                             <td class="right-label">
-                                <label>Shipping Cost: </label>
+                                <label><fmt:message key='shippingCost'/>: </label>
                             </td>
                             <td>
                                 <label>${initParam.deliverySurcharge}</label>
@@ -39,7 +39,7 @@
                         </tr>
                         <tr>
                             <td class="right-label">
-                                <label>Order Total: </label>
+                                <label><fmt:message key='orderTotal'/>: </label>
                             </td>
                             <td>
                                 <label>${orderRecord.amount}</label>
@@ -47,7 +47,7 @@
                         </tr>
                         <tr>
                             <td class="right-label">
-                                <label>Order Date: </label>
+                                <label><fmt:message key='orderDate'/>: </label>
                             </td>
                             <td>
                                 <label>
@@ -57,7 +57,7 @@
                         </tr>
                         <tr>
                             <td class="right-label">
-                                <label>Credit Card Number: </label>
+                                <label><fmt:message key='creditCardNumber'/>: </label>
                             </td>
                             <td>
                                 <label>
@@ -69,7 +69,7 @@
                         </tr>
                         <tr>
                             <td class="right-label">
-                                <label>Expiration Date: </label>
+                                <label><fmt:message key='expirationDate'/>: </label>
                             </td>
                             <td>
                                 <label>
@@ -82,12 +82,12 @@
             </div>
             <div class="ordered-books">
                 <table class="bgd-clr-white">
-                    <caption>Ordered Books</caption>
+                    <caption><fmt:message key='tableHeaderBooks'/></caption>
                     <tbody>
                         <tr>
-                            <td>Title</td>
-                            <td>Price</td>
-                            <td>Qty</td>
+                            <td><fmt:message key='title'/></td>
+                            <td><fmt:message key='price'/></td>
+                            <td><fmt:message key='abbrQty'/></td>
                         </tr>
                         <c:forEach var="orderedBook" items="${orderedBooks}" varStatus="iter">
                             <tr>

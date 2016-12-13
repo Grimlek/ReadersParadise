@@ -4,6 +4,7 @@
     Author     : csexton
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -20,11 +21,11 @@
                 <c:when test="${empty cart || cart.numberOfItems == 0}">
                     <div id="no-items-container" class="inline-block center bgd-clr-white width-7">
                         <h2 class="xls-pad-bot xls-pad-top">
-                            You don't contain any items within your cart
+                            <fmt:message key='noItems'/>
                         </h2>
                         <a id="continue-shopping" class="blue-btn txt-dec-none press-effect" 
                            title="Continue Shopping" href="../category?category=${selectedCategory.name}">
-                            Continue Shopping
+                            <fmt:message key='continueShopping'/>
                         </a>
                     </div>
                 </c:when>
@@ -32,11 +33,11 @@
                     <div id="cart-actions-container">
                         <a id="continue-shopping" class="blue-btn txt-dec-none press-effect" 
                            title="Continue Shopping" href="../category?category=${selectedCategory.name}">
-                            Continue Shopping
+                            <fmt:message key='continueShopping'/>
                         </a>
                         <a id="proceed-to-checkout" class="blue-btn txt-dec-none press-effect"
                            title="Proceed to Checkout" href="../checkout">
-                            Proceed to Checkout
+                            <fmt:message key='proceedToCheckout'/>
                         </a>
                     </div>
                     <div id="items-container" class="inline-block center bgd-clr-white width-7">
@@ -63,10 +64,10 @@
                                     </div>
                                     <div id="purchase-details">
                                         <div class="item-price-container">
-                                            <span class="item-price">Price: $${item.book.price}</span>
+                                            <span class="item-price"><fmt:message key='price'/>: $${item.book.price}</span>
                                         </div>
                                         <div class="item-qty-container">
-                                            <p id="${item.book.id}-item-qty" class="item-qty xls-pad-bot">Quantity: ${item.quantity}</p>
+                                            <p id="${item.book.id}-item-qty" class="item-qty xls-pad-bot"><fmt:message key='quantity'/>: ${item.quantity}</p>
                                             <form class="increment-form" action="increment" method="post">
                                                 <input type="hidden" name="bookId" value="${item.book.id}">
                                                 <button class="increment remove-default-button" type="submit">
@@ -93,7 +94,7 @@
                                     </form>
                                 </div>
                             </c:forEach>
-                            <p id="cart-subtotal">Subtotal (${cart.numberOfItems} items): $<span id="subtotal">${cart.subtotal}</span></p>
+                            <p id="cart-subtotal"><fmt:message key='subtotal'/> (${cart.numberOfItems} items): $<span id="subtotal">${cart.subtotal}</span></p>
                         </div>
                     </div>
                 </c:otherwise>

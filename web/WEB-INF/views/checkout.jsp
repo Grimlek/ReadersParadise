@@ -1,4 +1,5 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html" pageEncoding="UTF-8" 
          import="java.time.format.TextStyle,java.util.Locale"%>
 
@@ -12,54 +13,54 @@
     <body>
         <%@ include file="../jspf/header.jspf" %>
         <div class="sml-pad-top center">
-            <h1 id="checkout-header">Checkout</h1>
-            <p id="checkout-headline">In order to purchase the items in the shopping cart, please provide the following information.</p>
+            <h1 id="checkout-header"><fmt:message key='checkoutHeader'/></h1>
+            <p id="checkout-headline"><fmt:message key='instructions'/></p>
             <div class="checkout-container bgd-clr-white inline-block">
                 <form id="checkout-form" action="purchase" method="post">
                     <ul id="errors" class="<c:if test="${!errorFlag}">hide</c:if>">
                         <c:if test="${!empty nameError}">
-                            <li><label>Please enter a valid name.</label></li>
+                            <li><label><fmt:message key='nameError'/></label></li>
                         </c:if>
                         <c:if test="${!empty emailError}">
-                            <li><label>Please enter a valid email address.</label></li>
+                            <li><label><fmt:message key='emailError'/></label></li>
                         </c:if>
                         <c:if test="${!empty phoneError}">
-                            <li><label>Please enter a valid phone number.</label></li>
+                            <li><label><fmt:message key='phoneError'/></label></li>
                         </c:if>
                         <c:if test="${!empty addressError}">
-                            <li><label>Please enter a valid address.</label></li>
+                            <li><label><fmt:message key='addressError'/></label></li>
                         </c:if>
                         <c:if test="${!empty expirationeDateError}">
-                            <li><label>Please enter a valid expiration date.</label></li>
+                            <li><label><fmt:message key='expirationDateError'/></label></li>
                         </c:if>
                         <c:if test="${!empty ccNumError}">
-                            <li><label>Please enter a valid credit card number.</label></li>
+                            <li><label><fmt:message key='ccNumError'/></label></li>
                         </c:if>
                         <c:if test="${!empty cartError}">
-                            <li><label>The shopping cart doesn't contain any items.</label></li>
+                            <li><label><fmt:message key='cartError'/></label></li>
                         </c:if>
                     </ul>
                     <table>
                         <tbody>
                             <tr>
                                 <td>
-                                    <label for="name">Name: </label>
+                                    <label for="name"><fmt:message key='name'/>: </label>
                                 </td>
                                 <td>
-                                    <input id="name" name="name" type="text" data-msg-required="Please enter your name."/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label for="address">Address: </label>
-                                </td>
-                                <td>
-                                    <input id="address" name="address" type="text" data-msg-required="Please enter your address."/>
+                                    <input id="name" name="name" type="text" data-msg-required="<fmt:message key='nameRequired'/>"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <label for="email">Email: </label>
+                                    <label for="address"><fmt:message key='address'/>: </label>
+                                </td>
+                                <td>
+                                    <input id="address" name="address" type="text" data-msg-required="<fmt:message key='addressRequired'/>"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="email"><fmt:message key='email'/>: </label>
                                 </td>
                                 <td>
                                     <input type="text" id="email" name="email"/>
@@ -68,32 +69,32 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <label for="phone-num">Phone Number: </label>
+                                    <label for="phone-num"><fmt:message key='phoneNumber'/>: </label>
                                 </td>
                                 <td>
-                                    <input id="phone-num" name="phone-num" type="text" data-msg-required="Please enter a phone number."/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label for="cc-num">Card Number: </label>
-                                </td>
-                                <td>
-                                    <input id="cc-num" name="cc-num" type="text" data-msg-required="Please enter a credit card number."/>
+                                    <input id="phone-num" name="phone-num" type="text" data-msg-required="<fmt:message key='phoneNumRequired'/>"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <label for="exp-date">Expiration Date: </label>
+                                    <label for="cc-num"><fmt:message key='creditCardNumber'/>: </label>
                                 </td>
                                 <td>
-                                    <select class="drop-down" name="month" data-msg-required="Please enter an expiration date.">
+                                    <input id="cc-num" name="cc-num" type="text" data-msg-required="<fmt:message key='ccNumRequired'/>"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="exp-date"><fmt:message key='expirationDate'/>: </label>
+                                </td>
+                                <td>
+                                    <select class="drop-down" name="month" data-msg-required="<fmt:message key='expirationDateRequired'/>">
                                         <option disabled selected value></option>
                                         <c:forEach var="month" items="${months}">
                                             <option value="${month}">${month}</option>
                                         </c:forEach>
                                     </select>
-                                    <select class="drop-down" name="year" data-msg-required="Please enter an expiration date.">
+                                    <select class="drop-down" name="year" data-msg-required="<fmt:message key='expirationDateRequired'/>">
                                         <option disabled selected value></option>
                                         <c:forEach varStatus="loop" begin="0" end="12">
                                             <c:set var="year" value="${currentYear + loop.index}" scope="page"/>

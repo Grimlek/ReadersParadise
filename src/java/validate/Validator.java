@@ -16,9 +16,10 @@ public class Validator {
             String email,
             String phone,
             String address,
-            YearMonth expirationDate,
+            String year,
+            String month,
             String ccNumber) {
-        
+
         Map<String, Boolean> errorMap = new HashMap<>();
         boolean errorFlag = false;
 
@@ -45,12 +46,26 @@ public class Validator {
             errorFlag = true;
             errorMap.put("addressError", true);
         }
-        if (expirationDate == null
-                || (expirationDate.getMonthValue() < YearMonth.now().getMonthValue()
-                && expirationDate.getYear() == Year.now().getValue())) {
+
+        if (year != null
+                && month != null
+                && year.matches("^\\d+$")
+                && month.matches("^\\d+$")) {
+
+            YearMonth expirationDate = YearMonth.of(
+                    Integer.valueOf(year),
+                    Integer.valueOf(month));
+
+            if (expirationDate.getMonthValue() < YearMonth.now().getMonthValue()
+                    && expirationDate.getYear() == Year.now().getValue()) {
+                errorFlag = true;
+                errorMap.put("expirationeDateError", true);
+            }
+        } else {
             errorFlag = true;
             errorMap.put("expirationeDateError", true);
         }
+
         if (ccNumber == null
                 || ccNumber.equals("")
                 || ccNumber.length() < 16) {
