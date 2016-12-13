@@ -3,16 +3,21 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" 
          import="java.time.format.TextStyle,java.util.Locale"%>
 
+<fmt:setLocale value="${sessionScope.language}" scope="session" />
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Readers Paradise Checkout</title>
         <link rel="stylesheet" href="css/main.css">
+        <c:if test="${!empty language}">
+            <fmt:setLocale value="${language}" scope="session" />
+        </c:if>
     </head>
     <body>
         <%@ include file="../jspf/header.jspf" %>
-        <div class="sml-pad-top center">
+        <div class="sml-pad-top center content">
             <h1 id="checkout-header"><fmt:message key='checkoutHeader'/></h1>
             <p id="checkout-headline"><fmt:message key='instructions'/></p>
             <div class="checkout-container bgd-clr-white inline-block">
@@ -20,25 +25,25 @@
                     <ul id="errors" class="<c:if test="${!errorFlag}">hide</c:if>">
                         <c:if test="${!empty nameError}">
                             <li><label><fmt:message key='nameError'/></label></li>
-                        </c:if>
-                        <c:if test="${!empty emailError}">
+                                </c:if>
+                                <c:if test="${!empty emailError}">
                             <li><label><fmt:message key='emailError'/></label></li>
-                        </c:if>
-                        <c:if test="${!empty phoneError}">
+                                </c:if>
+                                <c:if test="${!empty phoneError}">
                             <li><label><fmt:message key='phoneError'/></label></li>
-                        </c:if>
-                        <c:if test="${!empty addressError}">
+                                </c:if>
+                                <c:if test="${!empty addressError}">
                             <li><label><fmt:message key='addressError'/></label></li>
-                        </c:if>
-                        <c:if test="${!empty expirationeDateError}">
+                                </c:if>
+                                <c:if test="${!empty expirationeDateError}">
                             <li><label><fmt:message key='expirationDateError'/></label></li>
-                        </c:if>
-                        <c:if test="${!empty ccNumError}">
+                                </c:if>
+                                <c:if test="${!empty ccNumError}">
                             <li><label><fmt:message key='ccNumError'/></label></li>
-                        </c:if>
-                        <c:if test="${!empty cartError}">
+                                </c:if>
+                                <c:if test="${!empty cartError}">
                             <li><label><fmt:message key='cartError'/></label></li>
-                        </c:if>
+                                </c:if>
                     </ul>
                     <table>
                         <tbody>
@@ -125,6 +130,7 @@
             var currentMonth = ${currentMonth};
             var currentYear = ${currentYear};
         </script>
+        <%@ include file="../jspf/messages_js.jspf" %>
         <script src="js/app.js"></script>
     </body>
 </html>

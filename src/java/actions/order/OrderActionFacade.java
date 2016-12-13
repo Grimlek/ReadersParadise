@@ -104,8 +104,13 @@ public class OrderActionFacade extends GenericActionFacade implements AutoClosea
         }
 
         cart = null;
+        Object language = getSession().getAttribute("javax.servlet.jsp.jstl.fmt.locale.session");
         super.getSession().invalidate();
-
+        
+        if (language != null) {
+            getSession().setAttribute("language", language);
+        }
+        
         return orderId;
     }
 

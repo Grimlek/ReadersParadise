@@ -1,11 +1,8 @@
-<%-- 
-    Document   : cart
-    Created on : Sep 12, 2016, 10:04:53 AM
-    Author     : csexton
---%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
+
+<fmt:setLocale value="${sessionScope.language}" scope="session" />
 
 <!DOCTYPE html>
 <html>
@@ -13,6 +10,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Readers Paradise Shopping Cart</title>
         <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <c:if test="${!empty language}">
+            <fmt:setLocale value="${language}" scope="session" />
+        </c:if>
     </head>
     <body>
         <%@ include file="../jspf/header.jspf" %>
@@ -94,13 +94,14 @@
                                     </form>
                                 </div>
                             </c:forEach>
-                            <p id="cart-subtotal"><fmt:message key='subtotal'/> (${cart.numberOfItems} items): $<span id="subtotal">${cart.subtotal}</span></p>
+                            <p id="cart-subtotal"><fmt:message key='subtotal'/> (${cart.numberOfItems} <fmt:message key='items'/>): $<span id="subtotal">${cart.subtotal}</span></p>
                         </div>
                     </div>
                 </c:otherwise>
             </c:choose>
         </main>
         <%@ include file="../jspf/footer.jspf" %>
+        <%@ include file="../jspf/messages_js.jspf" %>
         <script src="/ReadersParadise/js/app.js"></script>
     </body>
 </html>

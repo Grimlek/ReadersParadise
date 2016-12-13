@@ -1,4 +1,7 @@
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <footer>  
     <div id="business" class="left">
         <span>&copy; 2016 Readers Paradise</span> | 
@@ -10,20 +13,18 @@
             <fmt:message key='directions'/>
         </a>
     </div>
-    <div id="languages" class="right width-1">
-        <a title="English" class="press-effect txt-dec-none" href="#">
-            [english]
-        </a>
-        <a title="Czech" class="press-effect txt-dec-none" href="#">
-            [español]
-        </a>
-    </div>
+    <c:if test="${!fn:contains(pageContext.request.servletPath,'/confirmation')}">
+        <div id="languages" class="right width-1">
+            <a title="English" class="press-effect txt-dec-none" href="locale?language=en">
+                [english]
+            </a>
+            <a title="Spanish" class="press-effect txt-dec-none" href="locale?language=es">
+                [español]
+            </a>
+        </div>
+    </c:if>
     <div id="social-media" class="right">
-        <a title="Facebook Page" class="press-effect" href="#">
-            <img src="${initParam.imagePath}facebook-icon.png" alt="Facebook" />
-        </a>
-        <a title="Twitter Page" class="press-effect" href="#">
-            <img src="${initParam.imagePath}twitter.png" alt="Twitter" />
-        </a>
+        <a title="Facebook Page" class="press-effect" href="https://www.facebook.com"><img src="${initParam.imagePath}facebook.png" alt="Facebook" /></a>
+        <a title="Twitter Page" class="press-effect" href="https://www.twitter.com"><img src="${initParam.imagePath}twitter.png" alt="Twitter" /></a>
     </div>
 </footer>

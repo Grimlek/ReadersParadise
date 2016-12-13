@@ -14,7 +14,7 @@ body {
 
 main {
     width: 90%;
-    min-height: 370px;
+    min-height: 450px;
     margin-left: 5%;
 }
 
@@ -261,6 +261,7 @@ section, #no-items-container, #items-container {
 
 #languages {
     margin: 2.25% 5% 1.5% 0;
+    font-size: 1.1em;
 }
 
 #social-media a, #languages a {
@@ -558,8 +559,7 @@ textarea {
 }
 
 #checkout-form input[type=text], 
-#checkout-form input[type=password], 
-#checkout-form input[type=email] {
+#checkout-form input[type=password] {
     display: block;
     font-size: 1em;
     border: 1px solid #000000;
@@ -666,7 +666,7 @@ caption {
 }
 
 #confirmation-container {
-    height: 410px;
+    min-height: 525px;
 }
 
 .order-summary, .ordered-books {
@@ -682,11 +682,11 @@ caption {
 }
 
 .order-summary {
-    min-width: 350px;
+    min-width: 380px;
 }
 
 .order-summary table {
-    min-width: 300px;
+    min-width: 340px;
     font-size: 1.1em;
     margin: 0 auto;
     padding-bottom: 2%;
@@ -734,4 +734,8 @@ caption {
     -webkit-user-select: none; 
     -ms-user-select:none; 
     -user-select: none;
+}
+
+.content {
+    min-height: 450px;
 }

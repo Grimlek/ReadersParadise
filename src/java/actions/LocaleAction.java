@@ -9,11 +9,12 @@ package actions;
  *
  * @author csexton
  */
-public class LanguageAction implements Action<ActionFacade> {
+public class LocaleAction implements Action<ActionFacade>{
 
     @Override
     public String execute(ActionFacade facade) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String language = facade.getServletRequest().getParameter("language");
+        facade.getSession().setAttribute("language", language);
+        return facade.getReffererUri();
     }
-    
 }

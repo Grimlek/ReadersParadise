@@ -1,13 +1,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%-- 
-    Document   : category
-    Created on : Sep 12, 2016, 10:05:02 AM
-    Author     : csexton
---%>
+
+<fmt:setLocale value="${sessionScope.language}" scope="session" />
 
 <!DOCTYPE html>
 <html>
@@ -15,6 +11,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Readers Paradise</title>
         <link rel="stylesheet" type="text/css" href="css/main.css">
+        <c:if test="${!empty language}">
+            <fmt:setLocale value="${language}" scope="session" />
+        </c:if>
     </head>
     <body>
         <%@ include file="../jspf/header.jspf" %>
@@ -106,6 +105,7 @@
             </section>
         </main>
         <%@ include file="../jspf/footer.jspf" %>
+        <%@ include file="../jspf/messages_js.jspf" %>
         <script src="/ReadersParadise/js/app.js"></script>
     </body>
 </html>

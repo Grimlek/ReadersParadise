@@ -64,7 +64,7 @@ function addToCartEvent(selector) {
             addCartQuantity(1);
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            alert("An error has occurred, please contact the Administrator.");
+            alert(ajaxErrorMessage);
         }
     });
 }
@@ -86,7 +86,7 @@ function removeQuantityEvent(selector) {
             removeCartItem(bookId, $parentEle);
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            alert("An error has occurred, please contact the Administrator.");
+            alert(ajaxErrorMessage);
         }
     });
 }
@@ -113,7 +113,7 @@ function decrementQuantityEvent(selector) {
                 decrementCartItem(bookId, $parentEle);
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                alert("An error has occurred, please contact the Administrator.");
+                alert(ajaxErrorMessage);
             }
         });
     }
@@ -141,7 +141,7 @@ function incrementQuantityEvent(selector) {
                 incrementCartItem(bookId, $parentEle);
             },
             error: function (xhr, ajaxOptions, thrownError) {
-                alert("An error has occurred, please contact the Administrator.");
+                alert(ajaxErrorMessage);
             }
         });
     }
@@ -157,7 +157,7 @@ function decrementCartItem(bookId, $parentElement) {
     var $quantityElement = $("#" + bookId + "-item-qty");
     var quantity = $quantityElement.text().split(" ")[1];
     quantity = Number(quantity) - 1;
-    $("#" + bookId + "-item-qty").text("Quantity: " + quantity);
+    $("#" + bookId + "-item-qty").text(quantityText + ": " + quantity);
     
     if (quantity == 1) {
         $parentElement.find(".decrement-form").addClass("hide");
@@ -186,7 +186,7 @@ function removeCartItem(bookId, $parentElement) {
     if ($(".item-content").length == 0) {
         var $container = $("#cart-container");
         $container.empty();
-        $container.append('<div id="no-items-container" class="inline-block center bgd-clr-white width-7"><h2 class="xls-pad-bot xls-pad-top">You don\'t contain any items within your cart</h2><a id="continue-shopping" class="blue-btn txt-dec-none press-effect" title="Continue Shopping" href="../category?category=${selectedCategory.name}">Continue Shopping</a></div>');
+        $container.append('<div id="no-items-container" class="inline-block center bgd-clr-white width-7"><h2 class="xls-pad-bot xls-pad-top">'+ noItemsMessage +'</h2><a id="continue-shopping" class="blue-btn txt-dec-none press-effect" title="Continue Shopping" href="../category?category=${selectedCategory.name}">'+ continueShopppingText +'</a></div>');
     }    
     
     // Set Subtotal
@@ -212,7 +212,7 @@ function incrementCartItem(bookId, $parentElement) {
     var $quantityElement = $("#" + bookId + "-item-qty");
     var quantity = $quantityElement.text().split(" ")[1];
     quantity = Number(quantity) + 1;
-    $("#" + bookId + "-item-qty").text("Quantity: " + quantity);
+    $("#" + bookId + "-item-qty").text(quantityText + ": " + quantity);
 
     if (quantity > 1) {
         $parentElement.find(".decrement-form").removeClass("hide");
@@ -271,7 +271,7 @@ $.validator.addMethod("expirationDateNotExpired", function () {
     }
     
     return true;
-}, "Please enter a valid expiration date.");
+}, function() { return expirationDateErrorMessage; });
 
 
 $("#checkout-form").validate({
@@ -306,10 +306,10 @@ $("#checkout-form").validate({
     },
     messages: {
         "address": {
-            minlength: "Please enter a valid address."
+            minlength: validAddressMessage
         },
         "name": {
-            minlength: "Please enter a valid name."
+            minlength: validNameMessage
         }
     },
     require_from_group: {

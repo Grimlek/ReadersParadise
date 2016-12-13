@@ -5,6 +5,7 @@ import actions.ActionFacade;
 import actions.ActionFactory;
 import actions.CategoryAction;
 import actions.HomeAction;
+import actions.LocaleAction;
 import actions.ProductAction;
 import java.io.IOException;
 import javax.servlet.ServletConfig;
@@ -24,7 +25,8 @@ import javax.servlet.http.HttpServletResponse;
             "",
             "/index",
             "/category",
-            "/product"
+            "/product",
+            "/locale"
         }
 )
 public class ControllerServlet extends HttpServlet {
@@ -34,6 +36,7 @@ public class ControllerServlet extends HttpServlet {
         super.init(servletConfig);
         
         // GET Requests
+        ActionFactory.actions.put("GET/locale", new LocaleAction());
         ActionFactory.actions.put("GET/product", new ProductAction());
         ActionFactory.actions.put("GET/category", new CategoryAction());
         ActionFactory.actions.put("GET/index", new HomeAction());

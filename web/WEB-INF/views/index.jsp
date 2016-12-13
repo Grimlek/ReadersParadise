@@ -1,11 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
-<%-- 
-    Document   : index
-    Created on : Sep 2, 2016, 1:52:30 PM
-    Author     : csexton
---%>
+
+<fmt:setLocale value="${sessionScope.language}" scope="session" />
 
 <!DOCTYPE html>
 <html>

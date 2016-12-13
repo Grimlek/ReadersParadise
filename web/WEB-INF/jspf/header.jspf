@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <header class="center">
     <a href="/ReadersParadise/index" class="press-effect">
         <img class="left" src="${initParam.imagePath}logo.png" alt="Readers Paradise Logo" />
@@ -5,7 +6,7 @@
     <h1 class="inline">Readers Paradise</h1>
     <a id="login-button" class="press-effect right txt-dec-none usr-select-no" href="#" 
        title="Login" role="button" type="button">
-        Login
+        <fmt:message key='loginButton'/>
     </a>
     <div id="cart" class="right sml-pad-right">
         <a class="txt-dec-none press-effect" 
@@ -18,7 +19,7 @@
     </div>
     <form action="/ReadersParadise/category" method="get">
         <div id="search" class="xls-pad-top">
-            <input class="width-3" type="text" name="category" placeholder="Search" />
+            <input class="width-3" type="text" name="category" placeholder="<fmt:message key='searchPlaceholder'/>" />
             <button type="submit">
                 <img class="xls-pad-top press-effect" src="${initParam.imagePath}search-icon.png" alt="Search Icon" />
             </button>

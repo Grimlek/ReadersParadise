@@ -1,18 +1,19 @@
-<%-- 
-    Document   : confirmation
-    Created on : Sep 12, 2016, 10:05:56 AM
-    Author     : csexton
---%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
+
+<fmt:setLocale value="${sessionScope.language}" scope="session" />
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Readers Paradise Confirmation</title>
         <link rel="stylesheet" href="css/main.css">
+        <c:if test="${!empty language}">
+            <fmt:setLocale value="${language}" scope="session" />
+        </c:if>
     </head>
     <body>
         <%@ include file="../jspf/header.jspf" %>
