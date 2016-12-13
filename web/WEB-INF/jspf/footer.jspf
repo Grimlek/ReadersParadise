@@ -1,12 +1,13 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <footer>  
     <div id="business" class="left">
         <span>&copy; 2016 Readers Paradise</span> | 
         <a title="Contact Us" href="#">
-            Contact
+            <fmt:message key='contact'/>
         </a>
         | 
         <a title="Directions" href="#">
-            Directions
+            <fmt:message key='directions'/>
         </a>
     </div>
     <div id="languages" class="right width-1">
@@ -14,7 +15,7 @@
             [english]
         </a>
         <a title="Czech" class="press-effect txt-dec-none" href="#">
-            [czech]
+            [español]
         </a>
     </div>
     <div id="social-media" class="right">

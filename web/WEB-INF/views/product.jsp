@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="css/main.css">
     </head>
     <body>
-        <%@include file="../jspf/header.jspf" %>
+        <%@ include file="../jspf/header.jspf" %>
         <main class="inline-block">
             <section id="product" class="bgd-clr-white sml-pad-bot sml-pad-top">
                 <div class="inline-block sml-pad-left">
@@ -69,6 +69,6 @@
                 </a>
             </section>
         </main>
-        <%@include file="../jspf/footer.jspf" %>
+        <%@ include file="../jspf/footer.jspf" %>
     </body>
 </html>

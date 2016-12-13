@@ -3,10 +3,10 @@
     Created on : Sep 12, 2016, 10:05:56 AM
     Author     : csexton
 --%>
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <%@include file="../jspf/header.jspf" %>
+        <%@ include file="../jspf/header.jspf" %>
         <div id="confirmation-container">
             <div class="order-summary">
                 <table class="bgd-clr-white">
@@ -106,6 +106,6 @@
                 </table>
             </div>
         </div>
-        <%@include file="../jspf/footer.jspf" %>
+        <%@ include file="../jspf/footer.jspf" %>
     </body>
 </html>

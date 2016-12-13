@@ -3,8 +3,8 @@
     Created on : Sep 12, 2016, 10:04:53 AM
     Author     : csexton
 --%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +14,7 @@
         <link rel="stylesheet" type="text/css" href="../css/main.css">
     </head>
     <body>
-        <%@include file="../jspf/header.jspf" %>
+        <%@ include file="../jspf/header.jspf" %>
         <main id="cart-container" class="sml-pad-top center">
             <c:choose>
                 <c:when test="${empty cart || cart.numberOfItems == 0}">
@@ -99,7 +99,7 @@
                 </c:otherwise>
             </c:choose>
         </main>
-        <%@include file="../jspf/footer.jspf" %>
+        <%@ include file="../jspf/footer.jspf" %>
         <script src="/ReadersParadise/js/app.js"></script>
     </body>
 </html>

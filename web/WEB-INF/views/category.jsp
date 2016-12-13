@@ -1,5 +1,6 @@
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%-- 
@@ -16,7 +17,7 @@
         <link rel="stylesheet" type="text/css" href="css/main.css">
     </head>
     <body>
-        <%@include file="../jspf/header.jspf" %>
+        <%@ include file="../jspf/header.jspf" %>
         <aside id="sidebar" class="left center bgd-clr-white">
             <h1>Categories</h1>
             <ul id="category-list">
@@ -27,7 +28,7 @@
                                 <a href="category?category=${category.name}" 
                                    class="press-effect usr-select-no selected txt-dec-none" 
                                    type="button" role="button" title="${category.name}">
-                                    ${category.name}
+                                    <fmt:message key='${category.name}'/>
                                 </a>
                             </li>
                         </c:when>
@@ -36,7 +37,7 @@
                                 <a href= "category?category=${category.name}" 
                                    class="press-effect usr-select-no txt-dec-none" 
                                    type="button" role="button" title="${category.name}">
-                                    ${category.name}
+                                    <fmt:message key='${category.name}'/>
                                 </a>
                             </li>
                         </c:otherwise>
@@ -46,7 +47,7 @@
         </aside>
         <main id="category-content" class="inline-block xls-pad-bot">
             <section class="inline-block center bgd-clr-white">
-                <h1 id="category-title">${selectedCategory.name}</h1>
+                <h1 id="category-title"><fmt:message key='${selectedCategory.name}'/></h1>
                 <c:forEach var="book" items="${categoryBooks}">
                     <div class="prod-container inline-block">
                         <a class="xls-pad-left" href="product?id=${book.id}" title="${book.title}">
@@ -76,7 +77,7 @@
                             </a>
                             <div>
                                 <p>by ${book.author}</p>
-                                <p id="price">Price: \$${book.price}</p>
+                                <p id="price"><fmt:message key='price'/>: \$${book.price}</p>
                             </div>
                             <div>
                                 <img src="${initParam.starImagePath}four-and-half-stars.png" 
@@ -88,7 +89,7 @@
                                    class="inline-block press-effect drk-red-btn usr-select-no center" 
                                    type="submit" name="action" value="addToCart"
                                    onmousedown="return false;" onselectstart="return false;">
-                                    Add to Cart
+                                    <fmt:message key='addToCart'/>
                                 </button>
                             </form>
                             <c:choose>
@@ -104,7 +105,7 @@
                 </c:forEach>
             </section>
         </main>
-        <%@include file="../jspf/footer.jspf" %>
+        <%@ include file="../jspf/footer.jspf" %>
         <script src="/ReadersParadise/js/app.js"></script>
     </body>
 </html>

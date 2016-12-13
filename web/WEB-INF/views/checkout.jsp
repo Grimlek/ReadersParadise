@@ -1,4 +1,4 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html" pageEncoding="UTF-8" 
          import="java.time.format.TextStyle,java.util.Locale"%>
 
@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <%@include file="../jspf/header.jspf" %>
+        <%@ include file="../jspf/header.jspf" %>
         <div class="sml-pad-top center">
             <h1 id="checkout-header">Checkout</h1>
             <p id="checkout-headline">In order to purchase the items in the shopping cart, please provide the following information.</p>
@@ -62,7 +62,7 @@
                                     <label for="email">Email: </label>
                                 </td>
                                 <td>
-                                    <input type="email" id="email" name="email"/>
+                                    <input type="text" id="email" name="email"/>
                                 </td>
 
                             </tr>
@@ -119,7 +119,7 @@
                 </div>
             </div>
         </div>
-        <%@include file="../jspf/footer.jspf" %>
+        <%@ include file="../jspf/footer.jspf" %>
         <script type="text/javascript">
             var currentMonth = ${currentMonth};
             var currentYear = ${currentYear};
