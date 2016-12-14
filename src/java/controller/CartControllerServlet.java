@@ -51,6 +51,7 @@ public class CartControllerServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
         try (CartActionFacade facade = CartActionFacade.create(request, response)) {
+
             Action action = ActionFactory.getAction(request);
             String view = action.execute(facade);
             

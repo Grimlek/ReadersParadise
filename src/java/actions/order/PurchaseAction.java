@@ -20,9 +20,9 @@ public class PurchaseAction implements Action<OrderActionFacade> {
             facade.createValidationFlashScope();
             return "checkout";
         }
-
+        
         int orderId = facade.placeOrder();
-
+        
         if (orderId == 0) {
             return "checkout";
         }

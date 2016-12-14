@@ -14,7 +14,7 @@
         </a>
     </div>
     <c:if test="${!fn:contains(pageContext.request.servletPath,'/confirmation')}">
-        <div id="languages" class="right width-1">
+        <div id="languages" class="right">
             <a title="English" class="press-effect txt-dec-none" href="locale?language=en">
                 [english]
             </a>

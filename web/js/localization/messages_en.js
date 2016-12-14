@@ -5,3 +5,6 @@ var continueShoppingText = "Continue Shopping";
 var expirationDateErrorMessage = "Please enter a valid expiration date.";
 var validAddressMessage = "Please enter a valid address.";
 var validNameMessage = "Please enter a valid name.";
+var phoneMessage = "Please enter a valid phone number.";
+var emailMessage = "Please enter a valid email address.";
+var ccMessage = "Please enter a valid credit card number.";

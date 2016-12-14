@@ -29,7 +29,7 @@ $(function () {
         return false;
     });
     
-    
+    console.log(validAddressMessage);
     $(".decrement-form").on("submit", function () {
         decrementQuantityEvent(this);
         return false;
@@ -265,7 +265,6 @@ $.validator.setDefaults({
 $.validator.addMethod("expirationDateNotExpired", function () {
     selectedMonth = $('select[name="month"] option:selected').text();
     selectedYear = $('select[name="year"] option:selected').text();
-
     if (parseInt(selectedYear) == currentYear && parseInt(selectedMonth) < currentMonth) {
         return false;
     }
@@ -304,12 +303,25 @@ $("#checkout-form").validate({
             expirationDateNotExpired: true
         }
     },
+    showErrors: function(errorMap, errorList) {
+        $("#errors").removeClass("hide");
+        this.defaultShowErrors();
+    },
     messages: {
         "address": {
             minlength: validAddressMessage
         },
         "name": {
             minlength: validNameMessage
+        },
+        "phone-num": {
+            phoneUS: phoneMessage
+        },
+        "cc-num": {
+            creditcard: ccMessage
+        },
+        "email": {
+            email: emailMessage
         }
     },
     require_from_group: {

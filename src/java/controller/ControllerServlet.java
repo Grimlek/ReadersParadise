@@ -50,7 +50,7 @@ public class ControllerServlet extends HttpServlet {
         try (ActionFacade facade = ActionFacade.create(request, response)) {
             Action action = ActionFactory.getAction(request);
             String view = action.execute(facade);
-            
+
             if (request.getServletPath().equals("") || view.equals(request.getServletPath().substring(1))) {
                 request.getRequestDispatcher("/WEB-INF/views/" + view + ".jsp").forward(request, response);
             } 

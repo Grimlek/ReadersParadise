@@ -49,10 +49,10 @@ public class OrderControllerServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try (OrderActionFacade facade = OrderActionFacade.create(request, response)) {
-
+            
             Action action = ActionFactory.getAction(request);
             String view = action.execute(facade);
-
+            
             if (view.equals(request.getServletPath().substring(1))) {
                 request.getRequestDispatcher("/WEB-INF/views/" + view + ".jsp").forward(request, response);
             } else if (!view.equals("NO_REDIRECT")) {

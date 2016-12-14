@@ -25,25 +25,25 @@
                     <ul id="errors" class="<c:if test="${!errorFlag}">hide</c:if>">
                         <c:if test="${!empty nameError}">
                             <li><label><fmt:message key='nameError'/></label></li>
-                                </c:if>
-                                <c:if test="${!empty emailError}">
+                        </c:if>
+                        <c:if test="${!empty emailError}">
                             <li><label><fmt:message key='emailError'/></label></li>
-                                </c:if>
-                                <c:if test="${!empty phoneError}">
+                        </c:if>
+                        <c:if test="${!empty phoneError}">
                             <li><label><fmt:message key='phoneError'/></label></li>
-                                </c:if>
-                                <c:if test="${!empty addressError}">
+                        </c:if>
+                        <c:if test="${!empty addressError}">
                             <li><label><fmt:message key='addressError'/></label></li>
-                                </c:if>
-                                <c:if test="${!empty expirationeDateError}">
+                        </c:if>
+                        <c:if test="${!empty expirationeDateError}">
                             <li><label><fmt:message key='expirationDateError'/></label></li>
-                                </c:if>
-                                <c:if test="${!empty ccNumError}">
+                        </c:if>
+                        <c:if test="${!empty ccNumError}">
                             <li><label><fmt:message key='ccNumError'/></label></li>
-                                </c:if>
-                                <c:if test="${!empty cartError}">
+                        </c:if>
+                        <c:if test="${!empty cartError}">
                             <li><label><fmt:message key='cartError'/></label></li>
-                                </c:if>
+                        </c:if>
                     </ul>
                     <table>
                         <tbody>
