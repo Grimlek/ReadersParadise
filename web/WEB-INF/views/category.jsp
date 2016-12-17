@@ -8,9 +8,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Readers Paradise</title>
-        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
         <c:if test="${!empty language}">
             <fmt:setLocale value="${language}" scope="session" />
         </c:if>
@@ -83,7 +83,7 @@
                                      alt="Review Stars" />
                             </div>
                             <form class="add-to-cart-form inline" action="cart/add" method="post">
-                                <input type="hidden" name="bookId" value="${book.id}">
+                                <input type="hidden" name="bookId" value="${book.id}" />
                                 <button id="add-to-cart" 
                                    class="inline-block press-effect drk-red-btn usr-select-no center" 
                                    type="submit" name="action" value="addToCart"

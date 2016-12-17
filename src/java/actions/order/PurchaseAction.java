@@ -17,7 +17,7 @@ public class PurchaseAction implements Action<OrderActionFacade> {
     public String execute(OrderActionFacade facade) throws Exception {
         
         if (!facade.isCheckoutValid()) {
-            facade.createValidationFlashScope();
+            facade.createFlashScope();
             return "checkout";
         }
         

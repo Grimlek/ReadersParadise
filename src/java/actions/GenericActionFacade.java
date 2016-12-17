@@ -20,7 +20,7 @@ public abstract class GenericActionFacade {
     
     private HttpServletRequest request;
     private HttpServletResponse response;
-    private Map<String, ? extends Object> flashScope;
+    private Map<String, ?> flashScope;
     
     public GenericActionFacade(HttpServletRequest request, HttpServletResponse response) {
         this.request = request;
@@ -48,11 +48,11 @@ public abstract class GenericActionFacade {
         return request.getHeader("x-requested-with") != null;
     }
 
-    public void setFlashScope(Map<String, ? extends Object> flashScope) {
+    public void setFlashScope(Map<String, ?> flashScope) {
         this.flashScope = flashScope;
     }
 
-    public void createValidationFlashScope() {
+    public void createFlashScope() {
         String flashScopeId = UUID.randomUUID().toString();
         request.getSession().setAttribute(flashScopeId, flashScope);
         Cookie cookie = new Cookie("flash", flashScopeId);
