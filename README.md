@@ -1,7 +1,7 @@
-### ReadersParadise
+## ReadersParadise
 Book Store Web Application      
 
-#### Technology Stack
+### Technology Stack
 - Mysql
 - JSTL
 - JSP
@@ -15,7 +15,7 @@ Book Store Web Application
 - HTML
       
       
-#### Design Patterns
+### Design Patterns
 The project uses various design patterns implemented for learning and a good design. 
        
 - Facade
