@@ -1,9 +1,7 @@
-## ReadersParadise
-===================
-Book Store Web Application
+### ReadersParadise
+Book Store Web Application      
 
 #### Technology Stack
-=====================
 - Mysql
 - JSTL
 - JSP
@@ -15,11 +13,11 @@ Book Store Web Application
 - JQuery Validation Plugin
 - CSS
 - HTML
-
+      
+      
 #### Design Patterns
-====================
-The project uses various design patterns implemented for learning and a good design.
-
+The project uses various design patterns implemented for learning and a good design. 
+       
 - Facade
 - Command
 - Post / Redirect / Get
